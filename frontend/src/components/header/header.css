@@ -1,0 +1,17 @@
+.header{
+    background: #FFFFFF;
+    height: 72px;
+    width: 100%;
+    left:0px;
+    top:0px;
+    display: flex;
+    justify-content:space-between;
+    padding:0px 20px;
+    align-items:center;
+    border-bottom: 1px solid rgb(226, 222, 222);
+}
+
+.brand{
+    font-size: 18px;
+    font-weight: 500;
+}

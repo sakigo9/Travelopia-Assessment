@@ -1,0 +1,20 @@
+.home__container{
+    margin: 20px;
+}
+
+.home__container--heading{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.heading-one{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.heading-two{
+    font-size: 28px;
+    font-weight: 600;
+}
