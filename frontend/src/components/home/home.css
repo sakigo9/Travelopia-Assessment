@@ -12,9 +12,29 @@
 .heading-one{
     font-size: 15px;
     font-weight: 500;
+    text-align: center;
 }
 
 .heading-two{
     font-size: 28px;
     font-weight: 600;
+    text-align: center;
 }
+
+@media only screen and (min-width :454px) and (max-width:900px) {
+    
+ }
+ 
+ @media only screen and (max-width : 453px) {
+    .heading-one{
+        font-size: 15px;
+        font-weight: 350;
+        
+    }
+    .heading-two{
+        font-size: 20px;
+        font-weight: 500;
+       
+    }
+ }
+ 

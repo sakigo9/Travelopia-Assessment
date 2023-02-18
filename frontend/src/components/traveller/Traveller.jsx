@@ -7,7 +7,9 @@ import {
   Backdrop,
   CircularProgress,
 } from "@mui/material";
+import Axois from "axios";
 import "./traveller.css";
+import { BASE_URL } from "../../config";
 const Traveller = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,29 +27,57 @@ const Traveller = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("Submitted Data :", cost, fullName, numTravellers, place, email);
+    let dataObject = {
+      name: fullName,
+      email: email,
+      country: place,
+      numTravelers: numTravellers,
+      currency: cost,
+    };
+    if (
+      fullName.trim().length > 4 &&
+      email.trim().length > 5 &&
+      place.trim().length > 2 &&
+      numTravellers > 0 &&
+      cost > 0
+    ) {
+      setShowBackDrop(true);  
+      Axois.post(`${BASE_URL}travel/createData`, dataObject)
+        .then((res) => {
+            setShowBackDrop(false);
+            setOpenSnackBar(true);
+            setSnackBarMessage("Data submitted Successfully!!");
+        })
+        .catch((err) => {
+            setOpenSnackBar(true);
+            setSnackBarMessage("Error while submitting data");
+            console.log(err);
+        });
+    } else {
+      setOpenSnackBar(true);
+      setSnackBarMessage("Kindly enter all mandatory details");
+    }
   };
 
-  useEffect(() => {
-    console.log(cost, fullName, numTravellers, place, email);
-  }, [cost, fullName, numTravellers, place, email]);
   return (
     <>
       <Snackbar
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        anchorOrigin={{ vertical: "top", horizontal: "middle" }}
         open={openSnackBar}
-        autoHideDuration={6000}
+        autoHideDuration={4000}
+        style={{color: "#f77728"}}
         onClose={() => setOpenSnackBar(false)}
         message={snackBarMessage}
       />
       <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 10 }}
+        sx={{ color: "#f77728", zIndex: (theme) => theme.zIndex.drawer + 10 }}
         open={showBackDrop}
       >
         <CircularProgress color="inherit" />
       </Backdrop>
       <form className="form" onSubmit={handleSubmit}>
         <TextField
+          className="textField"
           fullWidth
           label="Full Name*"
           name="Full Name*"
@@ -60,6 +90,7 @@ const Traveller = () => {
         ></TextField>
         <TextField
           fullWidth
+          className="textField"
           label="Email Address*"
           name="Email Address*"
           type="email"
@@ -70,6 +101,7 @@ const Traveller = () => {
           sx={{ width: "45%", m: 1.5 }}
         ></TextField>
         <TextField
+          className="textField"
           fullWidth
           select
           SelectProps={{
@@ -89,6 +121,7 @@ const Traveller = () => {
           ))}
         </TextField>
         <TextField
+          className="textField"
           fullWidth
           label="No. of travellers*"
           name="No. of travellers*"
@@ -99,6 +132,7 @@ const Traveller = () => {
         ></TextField>
         <TextField
           fullWidth
+          className="textField"
           label="Enter you budget in Dollars*"
           name="Enter you budget in Dollars*"
           type="number"
