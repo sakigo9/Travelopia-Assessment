@@ -10,3 +10,10 @@
     font-size: 28px;
     font-weight: 500;
 }
+
+.card__container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+    justify-content: space-evenly;
+}
