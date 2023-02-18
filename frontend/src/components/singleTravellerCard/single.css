@@ -10,7 +10,25 @@
     box-shadow: rgb(0 0 0 / 4%) 0px 8px 16px;
 }
 
-@media only screen and (min-width :454px) and (max-width:900px) {}
+.details{
+    display: flex;
+    gap:5px;
+    align-items: center;
+}
+
+.title{
+    color:#f77728;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+@media only screen and (min-width :454px) and (max-width:900px) {
+    .single__card {
+        width: 100%;
+        padding: 10px;
+        margin: 10px;
+    }
+}
 
 @media only screen and (max-width : 453px) {
     .single__card {

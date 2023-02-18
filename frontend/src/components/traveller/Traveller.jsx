@@ -35,7 +35,7 @@ const Traveller = () => {
       currency: cost,
     };
     if (
-      fullName.trim().length > 4 &&
+      fullName.trim().length > 2 &&
       email.trim().length > 5 &&
       place.trim().length > 2 &&
       numTravellers > 0 &&
