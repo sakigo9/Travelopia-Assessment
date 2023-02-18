@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import {useNavigate} from "react-router-dom"
 
 const Header = () => {
- 
+   const navigate=useNavigate();
   return (
     <header className="header">
       <div className="brand">Travelopia</div>
@@ -17,7 +17,7 @@ const Header = () => {
           outline: "none",
         }}
         onClick={() => {
-          
+          navigate("/history")
         }}
       >
         View History

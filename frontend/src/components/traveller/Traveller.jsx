@@ -62,7 +62,7 @@ const Traveller = () => {
   return (
     <>
       <Snackbar
-        anchorOrigin={{ vertical: "top", horizontal: "middle" }}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
         open={openSnackBar}
         autoHideDuration={4000}
         style={{color: "#f77728"}}
